@@ -1,6 +1,6 @@
 function countNumOfDigits(number)
 {
-    let count=0;
+    let count = 0;
     while(number > 0)
     {
         count += 1;
@@ -11,26 +11,27 @@ function countNumOfDigits(number)
 
 function isArmstrong(number, power)
 {
-    let num = number;
+    let temp = number;
     let sum = 0;
-    while(num > 0)
+    let lastDigit;
+    while(temp > 0)
     {
-        let lastDigit = num % 10;
-        sum = sum + lastDigit ** power;
-        num = Math.floor(num / 10);
+        lastDigit = temp % 10;
+        sum += lastDigit ** power;
+        temp = Math.floor(temp / 10);
     }
 
     return (sum === number);
 }
 
-function printArmstrong(num)
+function printArmstrong(range)
 {
-    for(let i = 0 ; i < num; i++)
+    for(let index = 0 ; index < range; index++)
     {
-        let power = countNumOfDigits(i);
-        if(isArmstrong(i, power))
+        let power = countNumOfDigits(index);
+        if(isArmstrong(index, power))
         {
-            console.log(i);
+            console.log(index);
         }
     }
 }
